@@ -42,22 +42,22 @@ def model(dataset,train_index,test_index,name):
 	Obsv_Pt = dataset[test_index,87]
 	bcid = dataset[test_index,88]
 	trk = dataset[test_index,89]
-    eta = dataset[test_index,90]
-    phi = dataset[test_index,91]
+        eta = dataset[test_index,90]
+        phi = dataset[test_index,91]
 	pi0 = dataset[test_index,92]
 	model = Sequential()
-    #model.add(Conv1D(64, 3, activation='relu', input_shape=(425,100)))
-    #model.add(Conv1D(64, 3, activation='relu'))
-    #model.add(MaxPooling1D(3))
-    #model.add(Conv1D(128, 3, activation='relu'))
-    #model.add(Conv1D(128, 3, activation='relu'))
-    #model.add(GlobalAveragePooling1D())
-    #model.add(Dropout(0.5))
+        #model.add(Conv1D(64, 3, activation='relu', input_shape=(425,100)))
+        #model.add(Conv1D(64, 3, activation='relu'))
+        #model.add(MaxPooling1D(3))
+        #model.add(Conv1D(128, 3, activation='relu'))
+        #model.add(Conv1D(128, 3, activation='relu'))
+        #model.add(GlobalAveragePooling1D())
+        #model.add(Dropout(0.5))
 
 	model.add(Dense(300, input_dim=85, init='uniform', activation='relu'))
 	model.add(Dense(100, init='uniform', activation='relu'))
-    model.add(Dense(100,init='uniform', activation='relu'))
-    model.add(Dense(50, init='uniform', activation='relu'))
+        model.add(Dense(100,init='uniform', activation='relu'))
+        model.add(Dense(50, init='uniform', activation='relu'))
 	model.add(Dense(1, init='uniform', activation='sigmoid'))
 
 	model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
@@ -68,7 +68,7 @@ def model(dataset,train_index,test_index,name):
 	
 	for i in range(len(predictions)):
 		fname2.write(str(predictions[i])[1:-1]+","+str(Y_test[i])+","+str(Pt[i])+","+str(Obsv_Pt[i])+","+str(bcid[i])+","+str(trk[i])+","+str(eta[i])+","+str(phi[i])+","+str(pi0[i]))     
-    for i in range(len(fpr)):
+        for i in range(len(fpr)):
 		fname.write(str(fpr[i])+","+str(tpr[i])+","+str(thresholds[i])+","+str(roc_auc)+":")
 	fname2.close()
 	fname.close()
