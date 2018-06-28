@@ -44,7 +44,7 @@ for entry in signal:
     if seed.Et()>5000 and vipt>0 and -1.4<seed.Eta()<1.4:    # cuts  applied 
        # FLEt.write(','.join(str(L0cells[i]) for i in range(len(L0cells)))+',')
        # FLEt.write(','.join(str(L1cells[i]) for i in range(len(L1cells)))+',')
-        FLEt.write(','.join(str(L2cells_2D[i][j]) for i in range(1,4) for j in range(4,13))) # remove last , if L2Et
+        FLEt.write(','.join(str(L2cells_2D[i][j]) for i in range(1,4) for j in range(4,13))) # add "," if inputs are all layers
        # FLEt.write(','.join(str(L3cells[i]) for i in range(len(L3cells)))+',')
        # FLEt.write(','.join(str(Hadcells[i]) for i in range(len(Hadcells))))
         FLEt.write(",1,"+str(vipt)+","+str(obsv_pt)+","+str(bcid)+","+str(trk)+","+str(eta)+","+str(phi)+","+str(pi0))
@@ -66,7 +66,7 @@ for entry in back:
     if seed.Et()>5000 and -2.4<seed.Eta()<2.4:          # cuts applied 
         #FLEt.write(','.join(str(L0cells[i]) for i in range(len(L0cells)))+',')
         #FLEt.write(','.join(str(L1cells[i]) for i in range(len(L1cells)))+',')
-        FLEt.write(','.join(str(L2cells[i]) for i in range(len(L2cells))))
+        FLEt.write(','.join(str(L2cells[i]) for i in range(len(L2cells))))   # add "," if inputs are all layers
         #FLEt.write(','.join(str(L3cells[i]) for i in range(len(L3cells)))+',')
         #FLEt.write(','.join(str(Hadcells[i]) for i in range(len(Hadcells))))
         FLEt.write(",0,"+str(0)+","+str(obsv_pt)+","+str(bcid)+","+str(99)+","+str(eta)+","+str(phi)+","+str(99))
